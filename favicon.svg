@@ -8,5 +8,5 @@
     </linearGradient>
   </defs>
   <rect width="32" height="32" rx="8" fill="url(#g)"/>
-  <text x="16" y="22" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="15" letter-spacing="-0.5" fill="white">BK</text>
+  <text x="16" y="22" text-anchor="middle" font-family="Futura,Helvetica,Arial,sans-serif" font-weight="700" font-size="15" letter-spacing="-0.5" fill="white">BK</text>
 </svg>
