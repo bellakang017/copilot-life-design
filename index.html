@@ -223,19 +223,17 @@
       z-index: 1;
     }
 
-    /* Preview tabs */
-    .preview-tab {
-      color: #64748B;
-      background: transparent;
+    /* Stage card buttons */
+    .stage-card-btn {
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
     }
-    .preview-tab:hover {
-      color: #1E293B;
+    .stage-card-btn:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    .stage-card-btn.active {
       background: #F8FAFC;
-    }
-    .preview-tab.active {
-      color: white;
-      background: #0078D4;
-      border-color: #0078D4;
+      box-shadow: 0 4px 12px rgba(0,120,212,0.1);
     }
 
     /* Reduced motion */
@@ -391,289 +389,236 @@
     </div>
   </section>
 
-  <!-- 5 Stages — Timeline -->
+  <!-- 5 Stages + Preview — Side by Side -->
   <section id="stages" class="py-16 sm:py-24 px-5 sm:px-8">
-    <div class="max-w-3xl mx-auto">
-      <div class="reveal text-center mb-14">
+    <div class="max-w-6xl mx-auto">
+      <div class="reveal text-center mb-12">
         <h2 class="text-2xl sm:text-3xl font-bold text-text mb-3">The 5 Stages</h2>
-        <p class="text-text-secondary max-w-lg mx-auto">The system prompt guides Copilot through all 5 stages automatically. Here's what each one does.</p>
+        <p class="text-text-secondary max-w-lg mx-auto">Click any stage to see a sample Copilot output.</p>
       </div>
 
-      <div class="space-y-5">
+      <div id="preview" class="flex flex-col lg:flex-row gap-6 items-start">
 
-        <!-- Stage 1 -->
-        <div class="reveal reveal-delay-1 stage-line">
-          <div class="card-elevated rounded-2xl p-6 gradient-border flex items-start gap-5">
-            <div class="stage-number bg-primary text-white shadow-lg shadow-primary/20">1</div>
+        <!-- Left: Stage List -->
+        <div class="w-full lg:w-[340px] lg:flex-shrink-0 space-y-3">
+          <button onclick="switchPreview(1)" id="stageCard1" class="stage-card-btn active w-full text-left rounded-2xl p-4 flex items-start gap-4 transition-all cursor-pointer border-2" style="border-color: #0078D4;">
+            <div class="stage-number flex-shrink-0" style="background:#0078D4; color:#fff;">1</div>
             <div class="flex-1 min-w-0">
-              <h3 class="text-[17px] font-bold text-text mb-1">Parse the Posting</h3>
-              <p class="text-sm text-text-secondary leading-relaxed">Breaks the posting into what the team <em>actually</em> wants — responsibilities, culture signals, growth potential.</p>
+              <h3 class="text-[15px] font-bold text-text">Parse the Posting</h3>
+              <p class="text-xs text-text-secondary mt-0.5 leading-relaxed">What the team actually wants.</p>
             </div>
-          </div>
-        </div>
-
-        <!-- Stage 2 -->
-        <div class="reveal reveal-delay-1 stage-line">
-          <div class="card-elevated rounded-2xl p-6 gradient-border flex items-start gap-5">
-            <div class="stage-number bg-accent text-white shadow-lg shadow-accent/20">2</div>
+          </button>
+          <button onclick="switchPreview(2)" id="stageCard2" class="stage-card-btn w-full text-left rounded-2xl p-4 flex items-start gap-4 transition-all cursor-pointer border-2 border-gray-200 hover:border-gray-300">
+            <div class="stage-number flex-shrink-0" style="background:#7B83EB; color:#fff;">2</div>
             <div class="flex-1 min-w-0">
-              <h3 class="text-[17px] font-bold text-text mb-1">Mirror Your Profile</h3>
-              <p class="text-sm text-text-secondary leading-relaxed">Maps your experience — strong matches, gaps, and hidden strengths you might not see.</p>
+              <h3 class="text-[15px] font-bold text-text">Mirror Your Profile</h3>
+              <p class="text-xs text-text-secondary mt-0.5 leading-relaxed">Matches, gaps, hidden strengths.</p>
             </div>
-          </div>
-        </div>
-
-        <!-- Stage 3 -->
-        <div class="reveal reveal-delay-1 stage-line">
-          <div class="card-elevated rounded-2xl p-6 gradient-border flex items-start gap-5">
-            <div class="stage-number bg-accent-pink text-white shadow-lg shadow-accent-pink/20">3</div>
+          </button>
+          <button onclick="switchPreview(3)" id="stageCard3" class="stage-card-btn w-full text-left rounded-2xl p-4 flex items-start gap-4 transition-all cursor-pointer border-2 border-gray-200 hover:border-gray-300">
+            <div class="stage-number flex-shrink-0" style="background:#E74694; color:#fff;">3</div>
             <div class="flex-1 min-w-0">
-              <h3 class="text-[17px] font-bold text-text mb-1">Energy Check</h3>
-              <p class="text-sm text-text-secondary leading-relaxed">Rates each task on energy and meaning. Would you thrive here — or just survive?</p>
+              <h3 class="text-[15px] font-bold text-text">Energy Check</h3>
+              <p class="text-xs text-text-secondary mt-0.5 leading-relaxed">Thrive or just survive?</p>
             </div>
-          </div>
-        </div>
-
-        <!-- Stage 4 -->
-        <div class="reveal reveal-delay-1 stage-line">
-          <div class="card-elevated rounded-2xl p-6 gradient-border flex items-start gap-5">
-            <div class="stage-number bg-accent-orange text-white shadow-lg shadow-accent-orange/20">4</div>
+          </button>
+          <button onclick="switchPreview(4)" id="stageCard4" class="stage-card-btn w-full text-left rounded-2xl p-4 flex items-start gap-4 transition-all cursor-pointer border-2 border-gray-200 hover:border-gray-300">
+            <div class="stage-number flex-shrink-0" style="background:#F7630C; color:#fff;">4</div>
             <div class="flex-1 min-w-0">
-              <h3 class="text-[17px] font-bold text-text mb-1">Gap to Prototype</h3>
-              <p class="text-sm text-text-secondary leading-relaxed">Turns skill gaps into 2-week experiments you can start now. Small tests, not big commitments.</p>
+              <h3 class="text-[15px] font-bold text-text">Gap to Prototype</h3>
+              <p class="text-xs text-text-secondary mt-0.5 leading-relaxed">2-week experiments, not commitments.</p>
             </div>
-          </div>
-        </div>
-
-        <!-- Stage 5 -->
-        <div class="reveal reveal-delay-1 stage-line">
-          <div class="card-elevated rounded-2xl p-6 gradient-border flex items-start gap-5">
-            <div class="stage-number bg-primary text-white shadow-lg shadow-primary/20">5</div>
+          </button>
+          <button onclick="switchPreview(5)" id="stageCard5" class="stage-card-btn w-full text-left rounded-2xl p-4 flex items-start gap-4 transition-all cursor-pointer border-2 border-gray-200 hover:border-gray-300">
+            <div class="stage-number flex-shrink-0" style="background:#0078D4; color:#fff;">5</div>
             <div class="flex-1 min-w-0">
-              <h3 class="text-[17px] font-bold text-text mb-1">Craft Your Story</h3>
-              <p class="text-sm text-text-secondary leading-relaxed">Your narrative: why this role, why you, why now.</p>
+              <h3 class="text-[15px] font-bold text-text">Craft Your Story</h3>
+              <p class="text-xs text-text-secondary mt-0.5 leading-relaxed">Why this role, why you, why now.</p>
             </div>
-          </div>
+          </button>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- Copilot Chat Preview — All 5 Stages -->
-  <section id="preview" class="py-16 sm:py-24 px-5 sm:px-8 bg-surface">
-    <div class="max-w-3xl mx-auto">
-      <div class="reveal text-center mb-10">
-        <h2 class="text-2xl sm:text-3xl font-bold text-text mb-3">See It in Action</h2>
-        <p class="text-text-secondary">Click each stage to see a sample Copilot output.</p>
-      </div>
-
-      <!-- Stage Tabs -->
-      <div class="reveal flex flex-wrap justify-center gap-2 mb-6">
-        <button onclick="switchPreview(1)" id="previewTab1" class="preview-tab active text-sm font-semibold px-4 py-2 rounded-xl transition-all cursor-pointer border border-transparent">Stage 1</button>
-        <button onclick="switchPreview(2)" id="previewTab2" class="preview-tab text-sm font-semibold px-4 py-2 rounded-xl transition-all cursor-pointer border border-transparent">Stage 2</button>
-        <button onclick="switchPreview(3)" id="previewTab3" class="preview-tab text-sm font-semibold px-4 py-2 rounded-xl transition-all cursor-pointer border border-transparent">Stage 3</button>
-        <button onclick="switchPreview(4)" id="previewTab4" class="preview-tab text-sm font-semibold px-4 py-2 rounded-xl transition-all cursor-pointer border border-transparent">Stage 4</button>
-        <button onclick="switchPreview(5)" id="previewTab5" class="preview-tab text-sm font-semibold px-4 py-2 rounded-xl transition-all cursor-pointer border border-transparent">Stage 5</button>
-      </div>
-
-      <!-- Mock Copilot Window -->
-      <div class="reveal reveal-delay-1 bg-white rounded-2xl overflow-hidden shadow-xl shadow-gray-200/50 border border-gray-200/80">
-        <!-- Window chrome -->
-        <div class="flex items-center gap-2.5 px-5 py-3.5 bg-gray-50/80 border-b border-gray-200/80">
-          <div class="flex gap-2">
-            <div class="w-3 h-3 rounded-full bg-gray-300/80"></div>
-            <div class="w-3 h-3 rounded-full bg-gray-300/80"></div>
-            <div class="w-3 h-3 rounded-full bg-gray-300/80"></div>
-          </div>
-          <div class="flex-1 flex items-center justify-center">
-            <div class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3.5 py-1.5 text-xs text-text-muted font-medium">
-              <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4"/></svg>
-              copilot.microsoft.com
-            </div>
-          </div>
-        </div>
-
-        <!-- Chat area — Stage 1 -->
-        <div id="previewContent1" class="preview-content p-6 sm:p-8 space-y-6 max-h-[520px] overflow-y-auto">
-          <div class="flex justify-end">
-            <div class="chat-bubble-user px-5 py-3.5 max-w-[85%]">
-              <p class="text-sm text-text leading-relaxed">[System prompt pasted] Here's the job posting I want to analyze:</p>
-              <p class="text-sm text-text-secondary mt-2 italic">"Instructional Designer — UT Austin School of Education. Collaborate with faculty to design innovative online courses..."</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-3.5">
-            <div class="copilot-avatar mt-0.5">
-              <svg class="w-4 h-4" viewBox="0 0 28 28" fill="none"><path d="M10.5 8.5v4.5h-3a.5.5 0 00-.354.854l6.5 6.5a.5.5 0 00.708 0l6.5-6.5A.5.5 0 0020.5 13h-3V8.5a.5.5 0 00-.5-.5h-6a.5.5 0 00-.5.5z" fill="white"/></svg>
-            </div>
-            <div class="chat-bubble-ai px-5 py-4 max-w-[85%]">
-              <p class="text-sm font-bold text-primary mb-3" style="font-family: 'Outfit', system-ui, sans-serif;">Stage 1 — Parse the Posting</p>
-              <p class="text-sm font-semibold text-text mt-2 mb-1.5" style="font-family: 'Outfit', system-ui, sans-serif;">Core Responsibilities</p>
-              <ul class="text-sm text-text-secondary space-y-1.5 ml-1">
-                <li class="flex items-start gap-2"><span class="text-primary mt-0.5 flex-shrink-0 font-semibold">1.</span> Design online courses with faculty (collaborative, not solo)</li>
-                <li class="flex items-start gap-2"><span class="text-primary mt-0.5 flex-shrink-0 font-semibold">2.</span> Manage course development timelines (project management is central)</li>
-                <li class="flex items-start gap-2"><span class="text-primary mt-0.5 flex-shrink-0 font-semibold">3.</span> Evaluate and improve existing course materials</li>
-              </ul>
-              <p class="text-sm font-semibold text-text mt-4 mb-1.5" style="font-family: 'Outfit', system-ui, sans-serif;">Culture Signals</p>
-              <p class="text-sm text-text-secondary">"Innovative" + "collaborate with faculty" suggests this team values <strong class="text-text">creative autonomy</strong> within a partnership model.</p>
-              <p class="text-sm font-semibold text-text mt-4 mb-1.5" style="font-family: 'Outfit', system-ui, sans-serif;">Growth Indicators</p>
-              <p class="text-sm text-text-secondary">"School of Education" context = access to research communities and potential to publish on your design work.</p>
-              <div class="mt-4 pt-4 border-t border-gray-200/60">
-                <p class="text-sm text-text">Ready for Stage 2? Share your resume or key experiences.</p>
+        <!-- Right: Copilot Preview -->
+        <div class="w-full lg:flex-1 lg:sticky lg:top-24">
+          <div class="bg-white rounded-2xl overflow-hidden shadow-xl shadow-gray-200/50 border border-gray-200/80">
+            <!-- Window chrome -->
+            <div class="flex items-center gap-2.5 px-5 py-3.5 bg-gray-50/80 border-b border-gray-200/80">
+              <div class="flex gap-2">
+                <div class="w-3 h-3 rounded-full bg-gray-300/80"></div>
+                <div class="w-3 h-3 rounded-full bg-gray-300/80"></div>
+                <div class="w-3 h-3 rounded-full bg-gray-300/80"></div>
+              </div>
+              <div class="flex-1 flex items-center justify-center">
+                <div class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3.5 py-1.5 text-xs text-text-muted font-medium">
+                  <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4"/></svg>
+                  copilot.microsoft.com
+                </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <!-- Chat area — Stage 2 -->
-        <div id="previewContent2" class="preview-content hidden p-6 sm:p-8 space-y-6 max-h-[520px] overflow-y-auto">
-          <div class="flex justify-end">
-            <div class="chat-bubble-user px-5 py-3.5 max-w-[85%]">
-              <p class="text-sm text-text leading-relaxed">I'm an MA student in Communication. I've TAed for 2 semesters, managed a student org newsletter, and have basic Canva/Google Sites experience. No formal LMS training.</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-3.5">
-            <div class="copilot-avatar mt-0.5">
-              <svg class="w-4 h-4" viewBox="0 0 28 28" fill="none"><path d="M10.5 8.5v4.5h-3a.5.5 0 00-.354.854l6.5 6.5a.5.5 0 00.708 0l6.5-6.5A.5.5 0 0020.5 13h-3V8.5a.5.5 0 00-.5-.5h-6a.5.5 0 00-.5.5z" fill="white"/></svg>
-            </div>
-            <div class="chat-bubble-ai px-5 py-4 max-w-[85%]">
-              <p class="text-sm font-bold text-accent mb-3" style="font-family: 'Outfit', system-ui, sans-serif;">Stage 2 — Mirror Your Profile</p>
-              <div class="space-y-3">
-                <div class="flex items-start gap-2.5">
-                  <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-md flex-shrink-0 mt-0.5">STRONG</span>
-                  <p class="text-sm text-text-secondary">Faculty collaboration — your TA experience shows you already work within academic teams and understand course structures.</p>
-                </div>
-                <div class="flex items-start gap-2.5">
-                  <span class="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md flex-shrink-0 mt-0.5">PARTIAL</span>
-                  <p class="text-sm text-text-secondary">Project management — newsletter management shows organizational skills, but you'd need to frame it as timeline-driven content production.</p>
-                </div>
-                <div class="flex items-start gap-2.5">
-                  <span class="text-xs font-bold text-red-500 bg-red-50 px-2 py-0.5 rounded-md flex-shrink-0 mt-0.5">GAP</span>
-                  <p class="text-sm text-text-secondary">LMS platforms — no Canvas/Blackboard/Moodle experience. This is learnable but listed as required.</p>
-                </div>
-                <div class="flex items-start gap-2.5">
-                  <span class="text-xs font-bold text-primary bg-primary-light px-2 py-0.5 rounded-md flex-shrink-0 mt-0.5">HIDDEN</span>
-                  <p class="text-sm text-text-secondary">International perspective — your cross-cultural communication lens is valuable for designing inclusive online courses.</p>
+            <!-- Chat area — Stage 1 -->
+            <div id="previewContent1" class="preview-content p-5 sm:p-6 space-y-5 max-h-[480px] overflow-y-auto">
+              <div class="flex justify-end">
+                <div class="chat-bubble-user px-4 py-3 max-w-[85%]">
+                  <p class="text-sm text-text leading-relaxed">[System prompt pasted] Here's the job posting:</p>
+                  <p class="text-xs text-text-secondary mt-1.5 italic">"Instructional Designer — UT Austin School of Education..."</p>
                 </div>
               </div>
-              <div class="mt-4 pt-4 border-t border-gray-200/60">
-                <p class="text-sm text-text">Ready for Stage 3? Let's check how each responsibility would feel day-to-day.</p>
+              <div class="flex items-start gap-3">
+                <div class="copilot-avatar mt-0.5">
+                  <svg class="w-4 h-4" viewBox="0 0 28 28" fill="none"><path d="M10.5 8.5v4.5h-3a.5.5 0 00-.354.854l6.5 6.5a.5.5 0 00.708 0l6.5-6.5A.5.5 0 0020.5 13h-3V8.5a.5.5 0 00-.5-.5h-6a.5.5 0 00-.5.5z" fill="white"/></svg>
+                </div>
+                <div class="chat-bubble-ai px-4 py-3.5 max-w-[85%]">
+                  <p class="text-sm font-bold mb-2.5" style="font-family:'Outfit',system-ui,sans-serif; color:#0078D4;">Stage 1 — Parse the Posting</p>
+                  <p class="text-xs font-semibold text-text mb-1" style="font-family:'Outfit',system-ui,sans-serif;">Core Responsibilities</p>
+                  <ul class="text-xs text-text-secondary space-y-1 ml-1 mb-3">
+                    <li class="flex items-start gap-1.5"><span class="font-semibold" style="color:#0078D4;">1.</span> Design online courses with faculty</li>
+                    <li class="flex items-start gap-1.5"><span class="font-semibold" style="color:#0078D4;">2.</span> Manage course development timelines</li>
+                    <li class="flex items-start gap-1.5"><span class="font-semibold" style="color:#0078D4;">3.</span> Evaluate and improve existing materials</li>
+                  </ul>
+                  <p class="text-xs font-semibold text-text mb-1" style="font-family:'Outfit',system-ui,sans-serif;">Culture Signals</p>
+                  <p class="text-xs text-text-secondary mb-3">"Innovative" + "collaborate" = <strong class="text-text">creative autonomy</strong> within a partnership model.</p>
+                  <p class="text-xs font-semibold text-text mb-1" style="font-family:'Outfit',system-ui,sans-serif;">Growth Indicators</p>
+                  <p class="text-xs text-text-secondary">School of Education = access to research communities, potential to publish.</p>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <!-- Chat area — Stage 3 -->
-        <div id="previewContent3" class="preview-content hidden p-6 sm:p-8 space-y-6 max-h-[520px] overflow-y-auto">
-          <div class="flex items-start gap-3.5">
-            <div class="copilot-avatar mt-0.5">
-              <svg class="w-4 h-4" viewBox="0 0 28 28" fill="none"><path d="M10.5 8.5v4.5h-3a.5.5 0 00-.354.854l6.5 6.5a.5.5 0 00.708 0l6.5-6.5A.5.5 0 0020.5 13h-3V8.5a.5.5 0 00-.5-.5h-6a.5.5 0 00-.5.5z" fill="white"/></svg>
-            </div>
-            <div class="chat-bubble-ai px-5 py-4 max-w-[85%]">
-              <p class="text-sm font-bold text-accent-pink mb-3" style="font-family: 'Outfit', system-ui, sans-serif;">Stage 3 — Energy Check</p>
-              <p class="text-sm text-text-secondary mb-3">Based on your responses, here's your energy map:</p>
-              <div class="space-y-2.5">
-                <div class="flex items-center gap-3">
-                  <div class="flex-1 min-w-0">
-                    <p class="text-sm text-text font-medium">Design courses with faculty</p>
+            <!-- Chat area — Stage 2 -->
+            <div id="previewContent2" class="preview-content hidden p-5 sm:p-6 space-y-5 max-h-[480px] overflow-y-auto">
+              <div class="flex justify-end">
+                <div class="chat-bubble-user px-4 py-3 max-w-[85%]">
+                  <p class="text-xs text-text leading-relaxed">I'm an MA student in Communication. I've TAed for 2 semesters, managed a student org newsletter, basic Canva experience. No LMS training.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="copilot-avatar mt-0.5">
+                  <svg class="w-4 h-4" viewBox="0 0 28 28" fill="none"><path d="M10.5 8.5v4.5h-3a.5.5 0 00-.354.854l6.5 6.5a.5.5 0 00.708 0l6.5-6.5A.5.5 0 0020.5 13h-3V8.5a.5.5 0 00-.5-.5h-6a.5.5 0 00-.5.5z" fill="white"/></svg>
+                </div>
+                <div class="chat-bubble-ai px-4 py-3.5 max-w-[85%]">
+                  <p class="text-sm font-bold mb-2.5" style="font-family:'Outfit',system-ui,sans-serif; color:#7B83EB;">Stage 2 — Mirror Your Profile</p>
+                  <div class="space-y-2.5">
+                    <div class="flex items-start gap-2">
+                      <span class="text-[10px] font-bold text-green-600 bg-green-50 px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5">STRONG</span>
+                      <p class="text-xs text-text-secondary">Faculty collaboration — TA experience shows you work within academic teams.</p>
+                    </div>
+                    <div class="flex items-start gap-2">
+                      <span class="text-[10px] font-bold text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5">PARTIAL</span>
+                      <p class="text-xs text-text-secondary">Project management — newsletter = organizational skills, needs reframing.</p>
+                    </div>
+                    <div class="flex items-start gap-2">
+                      <span class="text-[10px] font-bold text-red-500 bg-red-50 px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5">GAP</span>
+                      <p class="text-xs text-text-secondary">LMS platforms — no Canvas/Blackboard experience. Learnable but required.</p>
+                    </div>
+                    <div class="flex items-start gap-2">
+                      <span class="text-[10px] font-bold px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5" style="color:#0078D4; background:#E8F0FE;">HIDDEN</span>
+                      <p class="text-xs text-text-secondary">International perspective — cross-cultural lens valuable for inclusive course design.</p>
+                    </div>
                   </div>
-                  <span class="text-xs font-bold text-green-600 bg-green-50 px-2.5 py-1 rounded-lg flex-shrink-0">High Energy</span>
                 </div>
-                <div class="flex items-center gap-3">
-                  <div class="flex-1 min-w-0">
-                    <p class="text-sm text-text font-medium">Manage development timelines</p>
+              </div>
+            </div>
+
+            <!-- Chat area — Stage 3 -->
+            <div id="previewContent3" class="preview-content hidden p-5 sm:p-6 space-y-5 max-h-[480px] overflow-y-auto">
+              <div class="flex items-start gap-3">
+                <div class="copilot-avatar mt-0.5">
+                  <svg class="w-4 h-4" viewBox="0 0 28 28" fill="none"><path d="M10.5 8.5v4.5h-3a.5.5 0 00-.354.854l6.5 6.5a.5.5 0 00.708 0l6.5-6.5A.5.5 0 0020.5 13h-3V8.5a.5.5 0 00-.5-.5h-6a.5.5 0 00-.5.5z" fill="white"/></svg>
+                </div>
+                <div class="chat-bubble-ai px-4 py-3.5 max-w-[90%]">
+                  <p class="text-sm font-bold mb-2.5" style="font-family:'Outfit',system-ui,sans-serif; color:#E74694;">Stage 3 — Energy Check</p>
+                  <div class="space-y-2">
+                    <div class="flex items-center gap-2.5">
+                      <p class="text-xs text-text font-medium flex-1">Design courses with faculty</p>
+                      <span class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-lg flex-shrink-0">High Energy</span>
+                    </div>
+                    <div class="flex items-center gap-2.5">
+                      <p class="text-xs text-text font-medium flex-1">Manage development timelines</p>
+                      <span class="text-[10px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-lg flex-shrink-0">Neutral</span>
+                    </div>
+                    <div class="flex items-center gap-2.5">
+                      <p class="text-xs text-text font-medium flex-1">Evaluate existing materials</p>
+                      <span class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-lg flex-shrink-0">High Energy</span>
+                    </div>
                   </div>
-                  <span class="text-xs font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-lg flex-shrink-0">Neutral</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div class="flex-1 min-w-0">
-                    <p class="text-sm text-text font-medium">Evaluate existing materials</p>
+                  <div class="mt-3 p-3 bg-green-50/60 rounded-xl border border-green-100">
+                    <p class="text-xs text-green-800"><strong>2 of 3</strong> core tasks are energizing. Good fit on the energy dimension.</p>
                   </div>
-                  <span class="text-xs font-bold text-green-600 bg-green-50 px-2.5 py-1 rounded-lg flex-shrink-0">High Energy</span>
                 </div>
               </div>
-              <div class="mt-4 p-3.5 bg-green-50/60 rounded-xl border border-green-100">
-                <p class="text-sm text-green-800"><strong>2 of 3</strong> core tasks are energizing. This looks like a good fit on the energy dimension.</p>
+            </div>
+
+            <!-- Chat area — Stage 4 -->
+            <div id="previewContent4" class="preview-content hidden p-5 sm:p-6 space-y-5 max-h-[480px] overflow-y-auto">
+              <div class="flex items-start gap-3">
+                <div class="copilot-avatar mt-0.5">
+                  <svg class="w-4 h-4" viewBox="0 0 28 28" fill="none"><path d="M10.5 8.5v4.5h-3a.5.5 0 00-.354.854l6.5 6.5a.5.5 0 00.708 0l6.5-6.5A.5.5 0 0020.5 13h-3V8.5a.5.5 0 00-.5-.5h-6a.5.5 0 00-.5.5z" fill="white"/></svg>
+                </div>
+                <div class="chat-bubble-ai px-4 py-3.5 max-w-[90%]">
+                  <p class="text-sm font-bold mb-2.5" style="font-family:'Outfit',system-ui,sans-serif; color:#F7630C;">Stage 4 — Gap to Prototype</p>
+                  <p class="text-xs text-text-secondary mb-2.5">Top gap: <strong class="text-text">LMS experience</strong>. Here's a 2-week experiment:</p>
+                  <div class="rounded-xl p-3.5 space-y-2.5" style="background:#F8FAFC;">
+                    <div>
+                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#F7630C;">Question to test</p>
+                      <p class="text-xs text-text">"Do I enjoy building learning experiences in a digital platform?"</p>
+                    </div>
+                    <div>
+                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#F7630C;">2-week experiment</p>
+                      <p class="text-xs text-text-secondary">Free Canvas LMS course + redesign one module from a class you've TAed.</p>
+                    </div>
+                    <div>
+                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#F7630C;">Who to talk to</p>
+                      <p class="text-xs text-text-secondary">15-min coffee chat with your department's instructional support team.</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="mt-4 pt-4 border-t border-gray-200/60">
-                <p class="text-sm text-text">Ready for Stage 4? Let's turn your gaps into experiments.</p>
+            </div>
+
+            <!-- Chat area — Stage 5 -->
+            <div id="previewContent5" class="preview-content hidden p-5 sm:p-6 space-y-5 max-h-[480px] overflow-y-auto">
+              <div class="flex items-start gap-3">
+                <div class="copilot-avatar mt-0.5">
+                  <svg class="w-4 h-4" viewBox="0 0 28 28" fill="none"><path d="M10.5 8.5v4.5h-3a.5.5 0 00-.354.854l6.5 6.5a.5.5 0 00.708 0l6.5-6.5A.5.5 0 0020.5 13h-3V8.5a.5.5 0 00-.5-.5h-6a.5.5 0 00-.5.5z" fill="white"/></svg>
+                </div>
+                <div class="chat-bubble-ai px-4 py-3.5 max-w-[90%]">
+                  <p class="text-sm font-bold mb-2.5" style="font-family:'Outfit',system-ui,sans-serif; color:#0078D4;">Stage 5 — Craft Your Story</p>
+                  <div class="space-y-2.5">
+                    <div>
+                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#0078D4;">Opening hook</p>
+                      <p class="text-xs text-text italic">"As someone who's navigated education systems in two countries, I know that how you design a learning experience shapes who feels included."</p>
+                    </div>
+                    <div>
+                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#0078D4;">Evidence bridge</p>
+                      <p class="text-xs text-text-secondary">TA experience + newsletter + cross-cultural lens = courses designed with empathy.</p>
+                    </div>
+                    <div>
+                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#0078D4;">Growth narrative</p>
+                      <p class="text-xs text-text-secondary">LMS gap → strength: "I'm completing Canvas certification to bring evidence-based design to every module."</p>
+                    </div>
+                    <div>
+                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#0078D4;">Closing vision</p>
+                      <p class="text-xs text-text italic">"I want to create online courses that feel as human as being in the room."</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chat input mockup -->
+            <div class="border-t border-gray-200/80 px-4 py-3 bg-gray-50/50">
+              <div class="flex items-center gap-2.5 bg-white border border-gray-200 rounded-xl px-4 py-2.5">
+                <span class="text-xs text-text-muted flex-1">Type your reply...</span>
+                <div class="w-7 h-7 rounded-lg copilot-gradient flex items-center justify-center opacity-60">
+                  <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
+                </div>
               </div>
             </div>
           </div>
+          <p class="text-center text-xs text-text-muted mt-4">Sample output — your results will be personalized.</p>
         </div>
 
-        <!-- Chat area — Stage 4 -->
-        <div id="previewContent4" class="preview-content hidden p-6 sm:p-8 space-y-6 max-h-[520px] overflow-y-auto">
-          <div class="flex items-start gap-3.5">
-            <div class="copilot-avatar mt-0.5">
-              <svg class="w-4 h-4" viewBox="0 0 28 28" fill="none"><path d="M10.5 8.5v4.5h-3a.5.5 0 00-.354.854l6.5 6.5a.5.5 0 00.708 0l6.5-6.5A.5.5 0 0020.5 13h-3V8.5a.5.5 0 00-.5-.5h-6a.5.5 0 00-.5.5z" fill="white"/></svg>
-            </div>
-            <div class="chat-bubble-ai px-5 py-4 max-w-[85%]">
-              <p class="text-sm font-bold text-accent-orange mb-3" style="font-family: 'Outfit', system-ui, sans-serif;">Stage 4 — Gap to Prototype</p>
-              <p class="text-sm text-text-secondary mb-3">Your top gap: <strong class="text-text">LMS experience</strong>. Here's a 2-week experiment:</p>
-              <div class="bg-surface rounded-xl p-4 space-y-3">
-                <div>
-                  <p class="text-xs font-bold text-accent-orange uppercase tracking-wide mb-1">Question to test</p>
-                  <p class="text-sm text-text">"Do I enjoy building structured learning experiences in a digital platform?"</p>
-                </div>
-                <div>
-                  <p class="text-xs font-bold text-accent-orange uppercase tracking-wide mb-1">2-week experiment</p>
-                  <p class="text-sm text-text-secondary">Take the free Canvas LMS basics course (Instructure). Redesign one module from a class you've TAed — apply what you learn.</p>
-                </div>
-                <div>
-                  <p class="text-xs font-bold text-accent-orange uppercase tracking-wide mb-1">Who to talk to</p>
-                  <p class="text-sm text-text-secondary">Ask your department's instructional support team for a 15-min coffee chat about their daily workflow.</p>
-                </div>
-              </div>
-              <div class="mt-4 pt-4 border-t border-gray-200/60">
-                <p class="text-sm text-text">Ready for Stage 5? Let's craft your story.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Chat area — Stage 5 -->
-        <div id="previewContent5" class="preview-content hidden p-6 sm:p-8 space-y-6 max-h-[520px] overflow-y-auto">
-          <div class="flex items-start gap-3.5">
-            <div class="copilot-avatar mt-0.5">
-              <svg class="w-4 h-4" viewBox="0 0 28 28" fill="none"><path d="M10.5 8.5v4.5h-3a.5.5 0 00-.354.854l6.5 6.5a.5.5 0 00.708 0l6.5-6.5A.5.5 0 0020.5 13h-3V8.5a.5.5 0 00-.5-.5h-6a.5.5 0 00-.5.5z" fill="white"/></svg>
-            </div>
-            <div class="chat-bubble-ai px-5 py-4 max-w-[85%]">
-              <p class="text-sm font-bold text-primary mb-3" style="font-family: 'Outfit', system-ui, sans-serif;">Stage 5 — Craft Your Story</p>
-              <div class="space-y-3.5">
-                <div>
-                  <p class="text-xs font-bold text-primary uppercase tracking-wide mb-1">Opening hook</p>
-                  <p class="text-sm text-text italic">"As someone who's navigated education systems in two countries, I know that how you design a learning experience shapes who feels included in it."</p>
-                </div>
-                <div>
-                  <p class="text-xs font-bold text-primary uppercase tracking-wide mb-1">Evidence bridge</p>
-                  <p class="text-sm text-text-secondary">Your TA experience + newsletter management + cross-cultural lens → you don't just design courses, you design them with empathy for diverse learners.</p>
-                </div>
-                <div>
-                  <p class="text-xs font-bold text-primary uppercase tracking-wide mb-1">Growth narrative</p>
-                  <p class="text-sm text-text-secondary">The LMS gap becomes a strength: "I'm already completing Canvas certification because I want to bring evidence-based design to every module I build."</p>
-                </div>
-                <div>
-                  <p class="text-xs font-bold text-primary uppercase tracking-wide mb-1">Closing vision</p>
-                  <p class="text-sm text-text italic">"I want to help UT's School of Education create online courses that feel as human as being in the room."</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Chat input mockup -->
-        <div class="border-t border-gray-200/80 px-5 py-4 bg-gray-50/50">
-          <div class="flex items-center gap-3 bg-white border border-gray-200 rounded-2xl px-5 py-3">
-            <span class="text-sm text-text-muted flex-1">Type your reply...</span>
-            <div class="w-9 h-9 rounded-xl copilot-gradient flex items-center justify-center opacity-60">
-              <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
-            </div>
-          </div>
-        </div>
       </div>
-
-      <p class="reveal text-center text-sm text-text-muted mt-5">Sample output. Your results will be personalized to the job posting you paste.</p>
     </div>
   </section>
 
@@ -900,15 +845,18 @@ IMPORTANT GUIDELINES:
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Preview stage tabs
+    // Stage preview switching
+    const stageColors = { 1: '#0078D4', 2: '#7B83EB', 3: '#E74694', 4: '#F7630C', 5: '#0078D4' };
     function switchPreview(stage) {
-      // Hide all content
       document.querySelectorAll('.preview-content').forEach(el => el.classList.add('hidden'));
-      // Deactivate all tabs
-      document.querySelectorAll('.preview-tab').forEach(el => el.classList.remove('active'));
-      // Show selected
+      document.querySelectorAll('.stage-card-btn').forEach(el => {
+        el.classList.remove('active');
+        el.style.borderColor = '#E5E7EB';
+      });
       document.getElementById('previewContent' + stage).classList.remove('hidden');
-      document.getElementById('previewTab' + stage).classList.add('active');
+      const card = document.getElementById('stageCard' + stage);
+      card.classList.add('active');
+      card.style.borderColor = stageColors[stage];
     }
   </script>
 
