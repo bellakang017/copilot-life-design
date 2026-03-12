@@ -383,11 +383,8 @@
     <div class="max-w-6xl mx-auto">
       <div class="reveal text-center mb-12">
         <h2 class="text-2xl sm:text-3xl font-bold text-text mb-3">The 5 Stages</h2>
-        <p class="text-text-secondary max-w-lg mx-auto">Here's what Copilot will actually generate for you at each stage. Click any stage to preview a real example.</p>
-        <div class="mt-5 inline-flex items-center gap-2 bg-primary-light text-primary text-xs font-medium px-4 py-2 rounded-full">
-          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342"/></svg>
-          Used at Auburn University, University of South Florida &amp; more
-        </div>
+        <p class="text-text-secondary max-w-lg mx-auto">Think of it like an executive summary review — you write the draft, Copilot helps you sharpen it like a senior advisor would. Click any stage to see a real example.</p>
+        <p class="text-xs text-text-muted mt-3 max-w-md mx-auto">Example below uses a real Microsoft Program Manager posting.</p>
       </div>
 
       <div id="preview" class="flex flex-col lg:flex-row gap-6 items-start">
@@ -398,35 +395,35 @@
             <div class="stage-number flex-shrink-0" style="background:#0078D4; color:#fff;">1</div>
             <div class="flex-1 min-w-0">
               <h3 class="text-[15px] font-bold text-text">Parse the Posting</h3>
-              <p class="text-xs text-text-secondary mt-0.5 leading-relaxed">What the team actually wants.</p>
+              <p class="text-xs text-text-secondary mt-0.5 leading-relaxed">What they really need, beyond the job title.</p>
             </div>
           </button>
           <button onclick="switchPreview(2)" id="stageCard2" class="stage-card-btn w-full text-left rounded-2xl p-4 flex items-start gap-4 transition-all cursor-pointer border-2 border-gray-200 hover:border-gray-300">
             <div class="stage-number flex-shrink-0" style="background:#7B83EB; color:#fff;">2</div>
             <div class="flex-1 min-w-0">
               <h3 class="text-[15px] font-bold text-text">Mirror Your Profile</h3>
-              <p class="text-xs text-text-secondary mt-0.5 leading-relaxed">Matches, gaps, hidden strengths.</p>
+              <p class="text-xs text-text-secondary mt-0.5 leading-relaxed">Your resume vs. what they want.</p>
             </div>
           </button>
           <button onclick="switchPreview(3)" id="stageCard3" class="stage-card-btn w-full text-left rounded-2xl p-4 flex items-start gap-4 transition-all cursor-pointer border-2 border-gray-200 hover:border-gray-300">
             <div class="stage-number flex-shrink-0" style="background:#E74694; color:#fff;">3</div>
             <div class="flex-1 min-w-0">
               <h3 class="text-[15px] font-bold text-text">Energy Check</h3>
-              <p class="text-xs text-text-secondary mt-0.5 leading-relaxed">Thrive or just survive?</p>
+              <p class="text-xs text-text-secondary mt-0.5 leading-relaxed">Would you enjoy this job day-to-day?</p>
             </div>
           </button>
           <button onclick="switchPreview(4)" id="stageCard4" class="stage-card-btn w-full text-left rounded-2xl p-4 flex items-start gap-4 transition-all cursor-pointer border-2 border-gray-200 hover:border-gray-300">
             <div class="stage-number flex-shrink-0" style="background:#F7630C; color:#fff;">4</div>
             <div class="flex-1 min-w-0">
               <h3 class="text-[15px] font-bold text-text">Gap to Prototype</h3>
-              <p class="text-xs text-text-secondary mt-0.5 leading-relaxed">2-week experiments, not commitments.</p>
+              <p class="text-xs text-text-secondary mt-0.5 leading-relaxed">What to do about the gaps before applying.</p>
             </div>
           </button>
           <button onclick="switchPreview(5)" id="stageCard5" class="stage-card-btn w-full text-left rounded-2xl p-4 flex items-start gap-4 transition-all cursor-pointer border-2 border-gray-200 hover:border-gray-300">
             <div class="stage-number flex-shrink-0" style="background:#0078D4; color:#fff;">5</div>
             <div class="flex-1 min-w-0">
               <h3 class="text-[15px] font-bold text-text">Craft Your Story</h3>
-              <p class="text-xs text-text-secondary mt-0.5 leading-relaxed">Why this role, why you, why now.</p>
+              <p class="text-xs text-text-secondary mt-0.5 leading-relaxed">Write the cover letter that connects the dots.</p>
             </div>
           </button>
         </div>
@@ -453,8 +450,8 @@
             <div id="previewContent1" class="preview-content p-5 sm:p-6 space-y-5 max-h-[480px] overflow-y-auto">
               <div class="flex justify-end">
                 <div class="chat-bubble-user px-4 py-3 max-w-[85%]">
-                  <p class="text-sm text-text leading-relaxed">I found this job posting. Can you break it down for me?</p>
-                  <p class="text-xs text-text-secondary mt-1.5 italic">"Instructional Designer — UT Austin School of Education. Design and develop online learning experiences..."</p>
+                  <p class="text-sm text-text leading-relaxed">Here's a job I'm interested in:</p>
+                  <p class="text-xs text-text-secondary mt-1.5 italic">"Program Manager — Microsoft Cloud + AI. Drive cross-functional collaboration to define product roadmaps. 3+ years experience in program/project management. Bachelor's in CS, Engineering, or related field..."</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
@@ -463,16 +460,16 @@
                 </div>
                 <div class="chat-bubble-ai px-4 py-3.5 max-w-[85%]">
                   <p class="text-sm font-bold mb-2.5" style="font-family:'Outfit',system-ui,sans-serif; color:#0078D4;">Stage 1 — Parse the Posting</p>
-                  <p class="text-xs font-semibold text-text mb-1" style="font-family:'Outfit',system-ui,sans-serif;">What they really need (beyond the job title)</p>
+                  <p class="text-xs font-semibold text-text mb-1" style="font-family:'Outfit',system-ui,sans-serif;">What this team actually needs</p>
                   <ul class="text-xs text-text-secondary space-y-1 ml-1 mb-3">
-                    <li class="flex items-start gap-1.5"><span class="font-semibold" style="color:#0078D4;">1.</span> Someone who can partner with faculty to build online courses</li>
-                    <li class="flex items-start gap-1.5"><span class="font-semibold" style="color:#0078D4;">2.</span> A project manager who keeps course development on track</li>
-                    <li class="flex items-start gap-1.5"><span class="font-semibold" style="color:#0078D4;">3.</span> A critical eye to improve existing learning materials</li>
+                    <li class="flex items-start gap-1.5"><span class="font-semibold" style="color:#0078D4;">1.</span> Someone who can align engineering, design, and business teams on a shared roadmap</li>
+                    <li class="flex items-start gap-1.5"><span class="font-semibold" style="color:#0078D4;">2.</span> A person who can translate customer feedback into product specs</li>
+                    <li class="flex items-start gap-1.5"><span class="font-semibold" style="color:#0078D4;">3.</span> An owner who tracks milestones and unblocks teams when things stall</li>
                   </ul>
-                  <p class="text-xs font-semibold text-text mb-1" style="font-family:'Outfit',system-ui,sans-serif;">What the language tells us about the team</p>
-                  <p class="text-xs text-text-secondary mb-3">Words like "innovative" and "collaborate" suggest they value <strong class="text-text">creative ownership</strong> — not just following orders.</p>
-                  <p class="text-xs font-semibold text-text mb-1" style="font-family:'Outfit',system-ui,sans-serif;">Where this job could take you</p>
-                  <p class="text-xs text-text-secondary">Being inside the School of Education gives you access to research communities and a path to publish your own work.</p>
+                  <p class="text-xs font-semibold text-text mb-1" style="font-family:'Outfit',system-ui,sans-serif;">Reading between the lines</p>
+                  <p class="text-xs text-text-secondary mb-3">"Cross-functional collaboration" + "drive" = they want someone who <strong class="text-text">takes initiative</strong>, not waits for direction. "Growth mindset" = they expect you to learn fast, not know everything.</p>
+                  <p class="text-xs font-semibold text-text mb-1" style="font-family:'Outfit',system-ui,sans-serif;">Career trajectory</p>
+                  <p class="text-xs text-text-secondary">Cloud + AI is Microsoft's fastest-growing division. PMs here often move into Senior PM or Group PM within 2–3 years.</p>
                 </div>
               </div>
             </div>
@@ -481,7 +478,7 @@
             <div id="previewContent2" class="preview-content hidden p-5 sm:p-6 space-y-5 max-h-[480px] overflow-y-auto">
               <div class="flex justify-end">
                 <div class="chat-bubble-user px-4 py-3 max-w-[85%]">
-                  <p class="text-xs text-text leading-relaxed">Here's my background: MA student in Communication, TAed for 2 semesters, managed a student org newsletter, basic Canva experience. I've never used an LMS like Canvas.</p>
+                  <p class="text-xs text-text leading-relaxed">Here's my resume: BS in Information Science, 1 year as a TA for a data analytics course, led a 4-person capstone project that shipped an internal tool, internship at a mid-size SaaS company doing QA. No PM title yet.</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
@@ -490,23 +487,23 @@
                 </div>
                 <div class="chat-bubble-ai px-4 py-3.5 max-w-[85%]">
                   <p class="text-sm font-bold mb-2.5" style="font-family:'Outfit',system-ui,sans-serif; color:#7B83EB;">Stage 2 — Mirror Your Profile</p>
-                  <p class="text-xs text-text-secondary mb-2.5">Let me map your experience to what this job asks for:</p>
+                  <p class="text-xs text-text-secondary mb-2.5">Here's how your experience maps to what they're asking for:</p>
                   <div class="space-y-2.5">
                     <div class="flex items-start gap-2">
                       <span class="text-[10px] font-bold text-green-600 bg-green-50 px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5">MATCH</span>
-                      <p class="text-xs text-text-secondary"><strong class="text-text">Working with faculty</strong> — Your TA experience proves you can collaborate in academic teams.</p>
+                      <p class="text-xs text-text-secondary"><strong class="text-text">Cross-functional work</strong> — Your capstone project (4 people, shipped a tool) is exactly the kind of story they want to hear.</p>
                     </div>
                     <div class="flex items-start gap-2">
                       <span class="text-[10px] font-bold text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5">REFRAME</span>
-                      <p class="text-xs text-text-secondary"><strong class="text-text">Project management</strong> — Running a newsletter = managing deadlines and content pipelines. Same skill, different context.</p>
+                      <p class="text-xs text-text-secondary"><strong class="text-text">QA internship → PM skill</strong> — QA means you already think in edge cases and user scenarios. Reposition this as "product thinking."</p>
                     </div>
                     <div class="flex items-start gap-2">
                       <span class="text-[10px] font-bold text-red-500 bg-red-50 px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5">GAP</span>
-                      <p class="text-xs text-text-secondary"><strong class="text-text">LMS platforms</strong> — No Canvas/Blackboard experience yet. This is learnable — see Stage 4 for a plan.</p>
+                      <p class="text-xs text-text-secondary"><strong class="text-text">3+ years PM experience</strong> — You don't have the title, but your capstone + TA + internship = ~2 years of PM-adjacent work. Address this directly.</p>
                     </div>
                     <div class="flex items-start gap-2">
                       <span class="text-[10px] font-bold px-1.5 py-0.5 rounded flex-shrink-0 mt-0.5" style="color:#0078D4; background:#E8F0FE;">BONUS</span>
-                      <p class="text-xs text-text-secondary"><strong class="text-text">Cross-cultural perspective</strong> — Your international background is an asset for designing inclusive learning experiences.</p>
+                      <p class="text-xs text-text-secondary"><strong class="text-text">Teaching experience</strong> — TA work shows you can explain technical concepts to non-technical audiences. PMs do this every day.</p>
                     </div>
                   </div>
                 </div>
@@ -517,7 +514,7 @@
             <div id="previewContent3" class="preview-content hidden p-5 sm:p-6 space-y-5 max-h-[480px] overflow-y-auto">
               <div class="flex justify-end">
                 <div class="chat-bubble-user px-4 py-3 max-w-[85%]">
-                  <p class="text-xs text-text leading-relaxed">Now help me think about which tasks I'd actually enjoy doing day-to-day.</p>
+                  <p class="text-xs text-text leading-relaxed">Would I actually like doing this job every day?</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
@@ -526,23 +523,27 @@
                 </div>
                 <div class="chat-bubble-ai px-4 py-3.5 max-w-[90%]">
                   <p class="text-sm font-bold mb-2.5" style="font-family:'Outfit',system-ui,sans-serif; color:#E74694;">Stage 3 — Energy Check</p>
-                  <p class="text-xs text-text-secondary mb-2.5">Based on your profile, here's how each core task might feel for you:</p>
+                  <p class="text-xs text-text-secondary mb-2.5">Let's look at each core task and check how it feels based on what you've told me:</p>
                   <div class="space-y-2">
                     <div class="flex items-center gap-2.5">
-                      <p class="text-xs text-text font-medium flex-1">Design courses with faculty</p>
+                      <p class="text-xs text-text font-medium flex-1">Align teams on product roadmap</p>
                       <span class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-lg flex-shrink-0">Energizing</span>
                     </div>
                     <div class="flex items-center gap-2.5">
-                      <p class="text-xs text-text font-medium flex-1">Manage development timelines</p>
+                      <p class="text-xs text-text font-medium flex-1">Write product specs from customer data</p>
+                      <span class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-lg flex-shrink-0">Energizing</span>
+                    </div>
+                    <div class="flex items-center gap-2.5">
+                      <p class="text-xs text-text font-medium flex-1">Track milestones, run status meetings</p>
                       <span class="text-[10px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-lg flex-shrink-0">Neutral</span>
                     </div>
                     <div class="flex items-center gap-2.5">
-                      <p class="text-xs text-text font-medium flex-1">Evaluate existing materials</p>
-                      <span class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-lg flex-shrink-0">Energizing</span>
+                      <p class="text-xs text-text font-medium flex-1">Present to senior leadership</p>
+                      <span class="text-[10px] font-bold text-red-400 bg-red-50 px-2 py-0.5 rounded-lg flex-shrink-0">Draining</span>
                     </div>
                   </div>
                   <div class="mt-3 p-3 bg-green-50/60 rounded-xl border border-green-100">
-                    <p class="text-xs text-green-800"><strong>Verdict:</strong> 2 of 3 core tasks would energize you. This suggests a strong day-to-day fit — not just on paper, but in practice.</p>
+                    <p class="text-xs text-green-800"><strong>2 of 4</strong> tasks energize you, 1 neutral, 1 draining. The draining part (exec presentations) is maybe 10% of the role — worth it for the rest.</p>
                   </div>
                 </div>
               </div>
@@ -552,7 +553,7 @@
             <div id="previewContent4" class="preview-content hidden p-5 sm:p-6 space-y-5 max-h-[480px] overflow-y-auto">
               <div class="flex justify-end">
                 <div class="chat-bubble-user px-4 py-3 max-w-[85%]">
-                  <p class="text-xs text-text leading-relaxed">I have a gap in LMS experience. What can I do about it before I apply?</p>
+                  <p class="text-xs text-text leading-relaxed">I don't have formal PM experience. What can I do before applying?</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
@@ -561,19 +562,19 @@
                 </div>
                 <div class="chat-bubble-ai px-4 py-3.5 max-w-[90%]">
                   <p class="text-sm font-bold mb-2.5" style="font-family:'Outfit',system-ui,sans-serif; color:#F7630C;">Stage 4 — Gap to Prototype</p>
-                  <p class="text-xs text-text-secondary mb-2.5">Here's a low-risk way to test whether this gap is a dealbreaker — or just a learning curve:</p>
+                  <p class="text-xs text-text-secondary mb-2.5">You don't need to get a PM job first. Here's how to build proof in 2 weeks:</p>
                   <div class="rounded-xl p-3.5 space-y-2.5" style="background:#F8FAFC;">
                     <div>
-                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#F7630C;">The real question</p>
-                      <p class="text-xs text-text">"Do I enjoy building learning experiences in a digital platform?"</p>
+                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#F7630C;">Write a product spec</p>
+                      <p class="text-xs text-text-secondary">Pick any app you use. Write a 1-page spec for a feature you'd add — problem, solution, success metrics. This is what PMs do daily.</p>
                     </div>
                     <div>
-                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#F7630C;">Try this for 2 weeks</p>
-                      <p class="text-xs text-text-secondary">Sign up for a free Canvas instructor account. Redesign one module from a class you've TAed — see if it feels creative or tedious.</p>
+                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#F7630C;">Do a mock PM interview</p>
+                      <p class="text-xs text-text-secondary">Use Microsoft's free PM interview prep resources. Practice one product design question and one estimation question.</p>
                     </div>
                     <div>
-                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#F7630C;">Talk to someone</p>
-                      <p class="text-xs text-text-secondary">15-min coffee chat with your department's instructional design team. Ask what a typical week looks like.</p>
+                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#F7630C;">Talk to a Microsoft PM</p>
+                      <p class="text-xs text-text-secondary">Find one on LinkedIn. Ask: "What does your average Tuesday look like?" People usually say yes to a 15-minute call.</p>
                     </div>
                   </div>
                 </div>
@@ -584,7 +585,7 @@
             <div id="previewContent5" class="preview-content hidden p-5 sm:p-6 space-y-5 max-h-[480px] overflow-y-auto">
               <div class="flex justify-end">
                 <div class="chat-bubble-user px-4 py-3 max-w-[85%]">
-                  <p class="text-xs text-text leading-relaxed">Help me write a compelling narrative for my application — connect my background to this role.</p>
+                  <p class="text-xs text-text leading-relaxed">Now help me write a cover letter that connects my background to this PM role.</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">
@@ -593,23 +594,23 @@
                 </div>
                 <div class="chat-bubble-ai px-4 py-3.5 max-w-[90%]">
                   <p class="text-sm font-bold mb-2.5" style="font-family:'Outfit',system-ui,sans-serif; color:#0078D4;">Stage 5 — Craft Your Story</p>
-                  <p class="text-xs text-text-secondary mb-2.5">Here's a narrative framework built from your profile and the posting:</p>
+                  <p class="text-xs text-text-secondary mb-2.5">Here's a draft that ties your experience directly to what this team needs:</p>
                   <div class="space-y-2.5">
                     <div>
-                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#0078D4;">Start with your why</p>
-                      <p class="text-xs text-text italic">"Having navigated education systems in two countries, I understand that how you design a learning experience determines who feels welcome in it."</p>
+                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#0078D4;">Opening</p>
+                      <p class="text-xs text-text italic">"When my capstone team was stuck between two technical approaches, I mapped both options against our user research and got the team aligned in one meeting. That's the kind of PM work I want to do at scale."</p>
                     </div>
                     <div>
-                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#0078D4;">Connect the dots</p>
-                      <p class="text-xs text-text-secondary">TA experience + newsletter management + cross-cultural lens → You design courses with both structure and empathy.</p>
+                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#0078D4;">Proof points</p>
+                      <p class="text-xs text-text-secondary">Capstone (shipped a tool with 4 people) + QA internship (product thinking) + TA (explaining tech to non-tech) = PM fundamentals, proven in 3 different settings.</p>
                     </div>
                     <div>
-                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#0078D4;">Turn gaps into growth</p>
-                      <p class="text-xs text-text-secondary">"I'm actively completing a Canvas certification to pair evidence-based pedagogy with hands-on platform skills."</p>
+                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#0078D4;">Addressing the gap</p>
+                      <p class="text-xs text-text-secondary">"I don't have the PM title yet — but I've been doing PM work across every role I've had. I wrote a product spec for [app] to sharpen my skills further."</p>
                     </div>
                     <div>
-                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#0078D4;">End with vision</p>
-                      <p class="text-xs text-text italic">"I want to create online courses that feel as human as being in the room."</p>
+                      <p class="text-[10px] font-bold uppercase tracking-wide mb-0.5" style="color:#0078D4;">Closing</p>
+                      <p class="text-xs text-text italic">"Cloud + AI is where I want to build my career. I'm not just applying because it's Microsoft — I'm applying because this team's work on [specific product] is the kind of problem I want to spend my days on."</p>
                     </div>
                   </div>
                 </div>
